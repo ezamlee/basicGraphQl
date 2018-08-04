@@ -1,0 +1,13 @@
+- school ==> 2
+    - schoolName
+    - class ==> 5
+        -className
+        - student  => 10
+            - name  - string
+            - age   - int 
+            - chair
+                - row - integer
+                - col - integer
+        - teacher => 1
+            - name    - string
+            - subject -string
