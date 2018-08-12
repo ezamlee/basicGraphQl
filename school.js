@@ -1,6 +1,8 @@
 const graphql = require('graphql');
 const classs = require('./class')
-
+const _ = require('lodash');
+const data = require('./data/storage');
+// console.log(Array.isArray(data)); 
 let school = new graphql.GraphQLObjectType({
     name:"school",
     fields:{
@@ -13,7 +15,7 @@ let school = new graphql.GraphQLObjectType({
         },
         schoolName :{
             type : graphql.GraphQLString,
-            resolve : (rootValue,args,context)=>{
+            resolve : (rootValue,__args,__context)=>{
                 return rootValue
             }
         }
@@ -22,8 +24,20 @@ let school = new graphql.GraphQLObjectType({
 
 let type = new graphql.GraphQLList(school)
 
-const resolve = (rootValue,args,context)=>{
-    return args.name
+const resolve = (_rootValue,args,_context)=>{
+    let target = args.name;
+    let result = [];
+    if (target) {
+        data.forEach(element => {
+            if (element.schoolName === target[0]) {
+                console.log([element])
+                result.push(element)
+                return result
+            } 
+        });
+    }else{
+        return 0
+    }
 }
 module.exports = {
     type,

@@ -15,7 +15,7 @@ module.exports = new graphql.GraphQLObjectType({
             args:graphql.GraphQLList(graphql.GraphQLString),
         },
         calssName:{
-            type:grpahql.GraphQLString,
+            type:graphql.GraphQLString,
         }
 
     }

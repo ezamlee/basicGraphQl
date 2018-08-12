@@ -3,21 +3,20 @@ const student = require('./student')
 const teacher = require('./teacher')
 
 let classs = new graphql.GraphQLObjectType({
-    name:"classs",
-    fields:{
-
-        className:{
-            type:graphql.GraphQLString,
-            resolve:(rootValue,args,context) => {
+    name: "classs",
+    fields: {
+        className: {
+            type: graphql.GraphQLString,
+            resolve: (rootValue, _args, _context) => {
                 return rootValue
             }
         },
-        student : {
+        student: {
             type: graphql.GraphQLList(student.type),
-            resolve:student.resolve,
-            args:{
-                name:{
-                    type:graphql.GraphQLList(graphql.GraphQLString)
+            resolve: student.resolve,
+            args: {
+                name: {
+                    type: graphql.GraphQLList(graphql.GraphQLString)
                 }
             },
         },
@@ -28,8 +27,7 @@ let classs = new graphql.GraphQLObjectType({
     }
 })
 let type = new graphql.GraphQLList(classs)
-const resolve = (rootValue,args,context)=>{
-    console.log("school: ",rootValue);
+const resolve = (_rootValue, args, _context) => {
     return args.name
 }
 module.exports = {
