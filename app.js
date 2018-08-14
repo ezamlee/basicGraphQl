@@ -16,11 +16,11 @@ app.use("/graphql",graphHttp(async (req,_resp,_graphqlParams)=>
     })
 ))
 
-app.get("/",(req,resp)=>{
+app.get("/",(req,res)=>{
     resp.send("welcome");
 })
 
 app.listen(3000,()=>{
-    console.log("wlcome");
+    console.log("welcome");
 })
 

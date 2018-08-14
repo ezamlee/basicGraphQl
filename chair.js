@@ -9,10 +9,7 @@ let type = new graphql.GraphQLObjectType({
 })
 
 resolve = (rootvalue,args,context)=>{
-    return {
-        row:  1 + Math.floor(Math.random()*10) ,
-        col:  1 + Math.floor(Math.random()*10)
-    }
+    return rootvalue.chair
 }
 
 

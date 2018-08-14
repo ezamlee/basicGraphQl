@@ -1,6 +1,6 @@
 const graphql = require("graphql");
 const school = require("./school");
-const mutation = require('./mutation')
+// const mutation = require('./mutation')
 
 let schema = new graphql.GraphQLSchema({
     query: new graphql.GraphQLObjectType({
