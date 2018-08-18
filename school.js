@@ -6,6 +6,12 @@ const data = require('./data/storage');
 let school = new graphql.GraphQLObjectType({
     name: "school",
     fields: {
+        schoolName: {
+            type: graphql.GraphQLString,
+        },
+        link: {
+            type: graphql.GraphQLString,
+        },
         class: {
             type: classs.type,
                 args: {
@@ -15,12 +21,6 @@ let school = new graphql.GraphQLObjectType({
                 },
                 resolve: classs.resolve
         },
-        schoolName: {
-            type: graphql.GraphQLString,
-        },
-        more: {
-            type: graphql.GraphQLString,
-        }
     }
 })
 
@@ -31,7 +31,7 @@ const resolve = (_rootValue, args, _context) => {
     let result = []
     if (target) {
         data.schools.forEach(element => {
-            target.forEach(targetElement=>{
+            target.forEach(targetElement => {
                 if (element.schoolName === targetElement) {
                     result.push(element)
                 }

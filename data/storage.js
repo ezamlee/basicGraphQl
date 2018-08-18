@@ -1,7 +1,7 @@
 let data = {
     schools: [{
             schoolName: "ahmed Orabi",
-            more: "asdasdad",
+            link: "asdasdad",
             class: [{
                 className: "1/3",
                 student: [{
@@ -29,11 +29,12 @@ let data = {
                         }
                     }
                 ]
-            }]
+            }],
+            
         },
         {
             schoolName: "MahmoudI",
-            more: "asdasdad.com",
+            link: "asdasdad.com",
             class: [{
                 className: "2/3",
                 student: [{

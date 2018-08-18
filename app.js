@@ -17,7 +17,7 @@ app.use("/graphql",graphHttp(async (req,_resp,_graphqlParams)=>
 ))
 
 app.get("/",(req,res)=>{
-    resp.send("welcome");
+    res.send("welcome");
 })
 
 app.listen(3000,()=>{

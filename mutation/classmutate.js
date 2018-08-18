@@ -1,22 +1,19 @@
 const graphql = require('graphql');
 const studentmutate = require('./studentmutate')
-const teachermutate = require('./teachermutate')
+// const teachermutate = require('./teachermutate')
 
 
 module.exports = new graphql.GraphQLObjectType({
     name: "classMutate",
     fields: {
         student: {
-            type:studentmutate,
-            args:graphql.GraphQLList(graphql.GraphQLString),
+            type: studentmutate,
+            args: {
+                students: graphql.GraphQLList(graphql.GraphQLString)
+            },
         },
-        teacher:{
-            type:teachermutate,
-            args:graphql.GraphQLList(graphql.GraphQLString),
+        calssName: {
+            type: graphql.GraphQLString,
         },
-        calssName:{
-            type:graphql.GraphQLString,
-        }
-
-    }
+    },
 })

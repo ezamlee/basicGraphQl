@@ -1,5 +1,5 @@
 const graphql = require('graphql');
-const chairType = require('./chairmutate')
+// const chairType = require('./chairmutate')
 
 
 module.exports = new graphql.GraphQLObjectType({
@@ -7,13 +7,22 @@ module.exports = new graphql.GraphQLObjectType({
     fields: {
         name: {
             type:graphql.GraphQLString,
+            args:{
+                type:graphql.GraphQLString
+            },
         },
         age:{
             type:graphql.GraphQLInt,
+            args:{
+                type:graphql.GraphQLInt
+            }
         },
-        chair:{
-            type:chairType,
-            args:graphql.GraphQLList(graphql.GraphQLInt)
-        }
+        
+        // chair:{
+        //     type:chairType,
+        //     args:{
+        //        type: graphql.GraphQLList(graphql.GraphQLInt)
+        //     }
+        // }
     }
 })

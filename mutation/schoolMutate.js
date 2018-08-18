@@ -5,17 +5,21 @@ module.exports = new graphql.GraphQLObjectType({
     name:"schoolMutate",
     fields:{
         class:{
-            type: graphql.GraphQLList(classmutate), 
+            type: graphql.GraphQLString, 
             args:{
+                // as a test set a class name 
                 name:{type: graphql.GraphQLString }
             },
-            //resolve:classs.resolve
-        },
-        schoolName :{
-            type : graphql.GraphQLString,
-            resolve : (rootValue,args,context)=>{
-                return rootValue
+            resolve:(rootvalue,args,context)=>{
+                let target = args.name;
+                if(target === "2/3"){
+                    console.log("this class is already exist")
+                    return "exist class"
+                }else{
+                    console.log("no class is exist  ... 2/3 ")
+                    return "not exist"
+                }
             }
-        }
+        },
     }
 })
