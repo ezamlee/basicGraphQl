@@ -2,11 +2,14 @@ const graphql = require('graphql');
 module.exports = new graphql.GraphQLObjectType({
     name: "chairMutate",
     fields: {
-        row:{
-            type:graphql.GraphQLInt
+        row: {
+            type: graphql.GraphQLInt
         },
-        col:{
-            type:graphql.GraphQLInt
+        col: {
+            type: graphql.GraphQLInt
         }
+    },
+    resolve:(rootvalue,args,context)=>{
+        
     }
 })

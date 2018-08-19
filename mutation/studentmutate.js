@@ -24,5 +24,6 @@ module.exports = new graphql.GraphQLObjectType({
         //        type: graphql.GraphQLList(graphql.GraphQLInt)
         //     }
         // }
+        
     }
 })

@@ -1,6 +1,6 @@
 const graphql = require('graphql');
 const studentmutate = require('./studentmutate')
-// const teachermutate = require('./teachermutate')
+const chairMutate = require("./chairmutate")
 
 
 module.exports = new graphql.GraphQLObjectType({
@@ -8,12 +8,35 @@ module.exports = new graphql.GraphQLObjectType({
     fields: {
         student: {
             type: studentmutate,
-            args: {
-                students: graphql.GraphQLList(graphql.GraphQLString)
+            calssName: {
+                type: graphql.GraphQLString,
             },
-        },
-        calssName: {
-            type: graphql.GraphQLString,
+            name:{
+                type:graphql.GraphQLString,
+            },
+            age:{
+                type:graphql.GraphQLInt
+            },
+            chair:{
+                type:chairMutate
+            },
+            args: {
+                calssName: {
+                    type: graphql.GraphQLString,
+                },
+                name:{
+                    type:graphql.GraphQLString,
+                },
+                age:{
+                    type:graphql.GraphQLInt
+                },
+                chair:{
+                    type:chairMutate
+                }
+            },
+            resolve:(args,rootvalue,context)=>{
+                return rootvalue
+            }
         },
     },
 })

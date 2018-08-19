@@ -10,7 +10,8 @@ module.exports = new graphql.GraphQLObjectType({
     name: "mutation",
     fields: {
         school: {
-            type: schoolMutate /*graphql.GraphQLString*/,
+            type: schoolMutate ,
+            // type: graphql.GraphQLString,
             args: {
                 name: {
                     type: graphql.GraphQLString
@@ -18,20 +19,29 @@ module.exports = new graphql.GraphQLObjectType({
                 link: {
                     type: graphql.GraphQLString
                 },
-                // student: {
-                //     type: graphql.GraphQLList(studentMutate)
-                // }
             },
-            resolve:(rootvalue,args,context)=>{
+            resolve: (rootvalue, args, context) => {
                 // 1- check the name is already exist in data base or not ..
                 // 2- if exist (console.log the status (Exist or Not))
+                // if(target === "ahmed Orabi" || target === "MahmoudI"){
+                //     console.log("This school is already exist")
+                //     return "exist"
+                // }else{
+                //     console.log("not exist school");
+                //     return args.name 
+                // }
                 let target = args.name;
-                if(target === "ahmed Orabi" || target === "MahmoudI"){
-                    console.log("This school is already exist")
-                    return "exist"
+                let result;
+                data.schools.forEach(element => {
+                    if (element.schoolName === target) {
+                        // return element
+                        result = element;
+                    }
+                });
+                if (result) {
+                    return result
                 }else{
-                    console.log("not exist school");
-                    return "not exist"
+                    return args.name
                 }
             }
         },
